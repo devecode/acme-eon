@@ -1,0 +1,75 @@
+{% extends 'home.html' %}
+
+{% block body %}
+<br>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Productos</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <a href="{% url 'products:producto_nuevo'  %}">
+                  <button type="button" class="btn btn-block bg-gradient-success">Nuevo Producto</button>
+                </a>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+  
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>NOMBRE</th>
+                  <th>DESCRIPCIÓN</th>
+                  <th>PRECIO</th>
+                  <th>CATEGORÍA</th>
+                  <th>STOCK INICIAL</th>
+                  <th>STOCK FINAL</th>
+                  <th>ACCIONES</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for pro in obj %}
+                    <tr>
+                      <td>{{ pro.nombre }}</td>
+                      <td>{{ pro.descripcion }}</td>
+                      <td>${{ pro.precio }}</td>
+                      <td>{{ pro.categoria }}</td>
+                      <td>{{ pro.stock_inicial }}</td>
+                      <td>{{ pro.stock_final }}</td>
+                      <td><a href="{% url 'products:producto_edit'  pro.id %}" class="href btn btn-warning btn-circle">
+                          <i class="fa fa-edit"></i>
+                      </a>
+                      <a href="{% url 'products:producto_delete' pro.id %}" class="btn btn-danger btn-circle">
+                      <i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+{% endblock body %}

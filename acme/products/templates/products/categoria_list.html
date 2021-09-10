@@ -1,0 +1,65 @@
+{% extends 'home.html' %}
+
+{% block body %}
+<br>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Categoría</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <a href="{% url 'products:categoria_nueva'  %}">
+                  <button type="button" class="btn btn-block bg-gradient-success">Nueva Categoría</button>
+                </a>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+  
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>NOMBRE</th>
+                  <th>ACCIONES</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for ca in obj %}
+                    <tr>
+                      <td>{{ ca.nombre }}</td>
+                      <td><a href="{% url 'products:categoria_edit'  ca.id %}" class="href btn btn-warning btn-circle">
+                          <i class="fa fa-edit"></i>
+                      </a>
+                      <a href="{% url 'products:categoria_delete' ca.id %}" class="btn btn-danger btn-circle">
+                      <i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+{% endblock body %}

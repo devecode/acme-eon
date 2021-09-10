@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import VentaProducto, VentaGeneral
 
-# Register your models here.
+admin.site.register(VentaGeneral)
+admin.site.register(VentaProducto)

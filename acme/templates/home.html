@@ -98,7 +98,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{% url 'users:cuenta' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cuenta</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'users:logout' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Cerrar Sesión</p>
                 </a>
@@ -133,6 +139,30 @@
                   <p>Productos</p>
                 </a>
               </li>
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Venta
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ventas</p>
+                </a>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'sales:ventas' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Nueva Venta</p>
+                </a>
             </ul>
           </li>
           </li>

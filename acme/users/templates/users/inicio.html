@@ -1,0 +1,66 @@
+{% extends 'home.html' %}
+{% load humanize %}
+{% load static %}
+{% block body %}
+
+    <script src="{% static 'plugins/highcharts.js' %}"></script>
+    <script src="{% static 'plugins/modules/data.js' %}"></script>
+    <script src="{% static 'plugins/modules/drilldown.js' %}"></script>
+    <script src="{% static 'plugins/modules/exporting.js' %}"></script>
+    <script src="{% static 'plugins/modules/export-data.js' %}"></script>
+    <script src="{% static 'plugins/modules/accessibility.js' %}"></script>
+
+
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-lg col-12">
+      <!-- small card -->
+      <div class="small-box bg-success">
+        <div class="inner">
+          <h3>{{ventas}}</h3>
+  
+          <p>VENTAS</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-stats-bars"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-lg col-12">
+    <!-- small card -->
+    <div class="small-box bg-danger">
+      <div class="inner">
+        <h3>${{total_ventas.total__sum | floatformat:2 | intcomma }}</h3>
+
+        <p>TOTAL DE VENTAS</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-stats-bars"></i>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-lg col-12">
+      <!-- small card -->
+      <div class="small-box bg-warning">
+        <div class="inner">
+          <h3>${{total_compras.total__sum | intcomma}}</h3>
+  
+          <p>TOTAL DE COMPRAS</p>
+        </div>
+        <div class="icon">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+</div>
+{% endblock body %}

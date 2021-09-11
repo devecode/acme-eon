@@ -10,6 +10,25 @@ from .models import Profile
 from .forms import CustomUserCreationForm, ProfileForm
 
 
+@login_required(login_url = "users:login")
+def home(request):
+    from sales.models import VentaGeneral, VentaProducto
+    from shopping.models import CompraGeneral, CompraProducto
+    from products.models import Product
+    from django.db.models import Count, Sum, Max, Min, F, FloatField
+    from datetime import date, datetime, timedelta
+
+ 
+    fecha = str(date.today())
+
+    ventas = VentaGeneral.objects.count()
+    total_ventas = VentaGeneral.objects.all().aggregate(Sum('total'))
+    total_compras = CompraGeneral.objects.all().aggregate(Sum('total'))
+
+    context = {'ventas': ventas, 'total_ventas': total_ventas, 'total_compras': total_compras}
+
+    return render(request, 'users/inicio.html', context)
+
 
 def registroUsuario(request):
     form = CustomUserCreationForm()

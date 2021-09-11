@@ -42,8 +42,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {% for pro in obj %}
-                    {% if pro.stock_inicial > 0 %}
+                    {% for pro in sin_exis %}
                     <tr>
                       <td>{{ pro.nombre }}</td>
                       <td>{{ pro.descripcion }}</td>
@@ -58,7 +57,6 @@
                       <i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
-                    {% endif %}
                     {% endfor %}
                 </tbody>
               </table>

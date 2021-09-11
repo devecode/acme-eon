@@ -1,4 +1,5 @@
 from django.urls import path
+from products import views as vistas
 from .views import *
 
 urlpatterns = [
@@ -12,6 +13,8 @@ urlpatterns = [
     path('producto/nueva',ProductoNew.as_view(), name='producto_nuevo'),
     path('producto/edit/<int:pk>', ProductoEdit.as_view(), name="producto_edit"),
     path('producto/delete/<int:pk>', ProductoDel.as_view(), name='producto_delete'),
+
+    path('productos/no-stock', vistas.productosSinExistencia, name='no-stock')
 
 
 ]

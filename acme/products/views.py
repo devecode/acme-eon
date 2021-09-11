@@ -79,3 +79,8 @@ class ProductoDel(SuccessMessageMixin, LoginRequiredMixin, generic.DeleteView):
     context_object_name = "obj"
     success_url= reverse_lazy("products:producto")
     success_message="Producto borrado satisfactoriamente"
+
+def productosSinExistencia(request):
+    sin_exis = Product.objects.filter(stock_inicial = '0')
+
+    return render(request, 'products/sin_exis.html', {'sin_exis': sin_exis})

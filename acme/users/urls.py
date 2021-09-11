@@ -3,6 +3,11 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
+    
+    path('',views.home, name='inicio'),
+
+
+
     path('registro/', views.registroUsuario, name="registro"),
     path('cuenta/', views.cuentaUsuario, name="cuenta"),
     path('editar-cuenta/', views.editarCuenta, name="editar-cuenta"),

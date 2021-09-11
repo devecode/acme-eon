@@ -19,7 +19,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(('products.urls','products'), namespace='products')),
-    path('',include(('sales.urls','sales'), namespace='sales')),
+    #path('',include(('sales.urls','sales'), namespace='sales')),
     path('',include(('users.urls','users'), namespace='users')),
 ]
 admin.site.site_header = 'ACME'
